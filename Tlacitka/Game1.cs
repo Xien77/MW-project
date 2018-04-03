@@ -12,8 +12,10 @@ namespace Tlacitka
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Button button;
+        TextButton textbutton;
         Texture2D cursor;
         Vector2 cursorPosition;
+
         public static Game1 instance;
 
         public Game1()
@@ -33,7 +35,8 @@ namespace Tlacitka
         {
             
 
-            button = new Button(100, 100, 40, 100);
+            button = new Button(100, 100, 40, 100, Color.Red);
+            textbutton = new TextButton(100, 100, 40, 100, Color.Red);
 
             cursorPosition = new Vector2(20, 20);
             cursor = new Texture2D(GraphicsDevice, 20, 20);
@@ -79,8 +82,7 @@ namespace Tlacitka
                 Exit();
 
             cursorPosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-
-            
+            button.ButtonFunction();
 
             base.Update(gameTime);
         }
